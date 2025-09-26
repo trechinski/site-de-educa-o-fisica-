@@ -7,7 +7,7 @@ body {
   font-family: "Lato", sans-serif;
 }
 
-.sidenav {
+. {
   height: 100%;
   width: 200px;
   position: fixed;
@@ -19,7 +19,7 @@ body {
   padding-top: 20px;
 }
 
-.sidenav a {
+.vertical-bar a {
   padding: 6px 6px 6px 32px;
   text-decoration: none;
   font-size: 25px;
@@ -27,7 +27,7 @@ body {
   display: block;
 }
 
-.sidenav a:hover {
+.vertical-bar.show a:hover {
   color: #f1f1f1;
 }
 
@@ -35,15 +35,15 @@ body {
   margin-left: 200px; /* Same as the width of the sidenav */
 }
 
-/* Barra horizontal animada */
-.horizontal-bar {
+/*  animada */
+.vertical-bar {
   position: fixed;
   top: -60px;
   left: 0;
   width: 100%;
   height: 60px;
-  background: #457b9d;
-  color: #fff;
+  background: #1d3557;
+  color:#fff8f0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,7 +52,7 @@ body {
   transition: top 0.4s cubic-bezier(.68,-0.55,.27,1.55);
   z-index: 1200;
 }
-.horizontal-bar.show {
+.vertical-bar.show {
   top: 0;
 }
 
@@ -64,11 +64,7 @@ body {
 </head>
 <body>
 
-<div class="horizontal-bar" id="horizontalBar">
-  <span>Barra Horizontal de Navegação</span>
-</div>
-
-<div class="sidenav">
+<div class="vertical-bar" id="verticalBar">
   <a href="#">About</a>
   <a href="#">Services</a>
   <a href="#">Clients</a>
@@ -82,12 +78,12 @@ body {
 
 <script>
 // Animação da barra horizontal
-const horizontalBar = document.getElementById('horizontalBar');
+const verticalBar = document.getElementById('verticalBar');
 document.body.addEventListener('mousemove', function(e) {
   if (e.clientY <= 60) {
-    horizontalBar.classList.add('show');
+    verticalBar.classList.add('show');
   } else {
-    horizontalBar.classList.remove('show');
+    verticalBar.classList.remove('show');
   }
 });
 </script>
