@@ -64,8 +64,9 @@ body {
 <script>
 // Animação da barra lateral vertical
 const verticalBar = document.getElementById('verticalBar');
-// Aumenta a área sensível para 120px
+// Mostra a barra ao passar o mouse em qualquer ponto da lateral esquerda (altura total, largura 120px)
 document.body.addEventListener('mousemove', function(e) {
+  // Verifica se o mouse está na lateral esquerda (qualquer altura, até 120px da esquerda)
   if (e.clientX <= 120) {
     verticalBar.classList.remove('hide');
   } else {
