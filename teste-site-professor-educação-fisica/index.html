@@ -41,6 +41,17 @@ body {
   margin-left: 200px;
 }
 
+/* Sensor lateral invisível */
+.left-sensor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 120px;
+  height: 100vh;
+  z-index: 1100;
+  background: transparent;
+}
+
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
@@ -48,6 +59,8 @@ body {
 </style>
 </head>
 <body>
+
+<div class="left-sensor" id="leftSensor"></div>
 
 <div class="vertical-bar hide" id="verticalBar">
   <a href="#">Início</a>
@@ -62,14 +75,17 @@ body {
 </div>
 
 <script>
-// Animação da barra lateral vertical
+// Animação da barra lateral vertical usando sensor invisível
 const verticalBar = document.getElementById('verticalBar');
-// Mostra a barra ao passar o mouse em qualquer ponto da lateral esquerda (altura total, largura 120px)
-document.body.addEventListener('mousemove', function(e) {
-  // Verifica se o mouse está na lateral esquerda (qualquer altura, até 120px da esquerda)
-  if (e.clientX <= 140) {
-    verticalBar.classList.remove('hide');
-  } else {
+const leftSensor = document.getElementById('leftSensor');
+
+leftSensor.addEventListener('mouseenter', function() {
+  verticalBar.classList.remove('hide');
+});
+
+verticalBar.addEventListener('mouseleave', function(e) {
+  // Só esconde se o mouse sair da barra lateral para fora do sensor
+  if (!leftSensor.matches(':hover')) {
     verticalBar.classList.add('hide');
   }
 });
