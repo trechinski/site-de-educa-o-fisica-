@@ -1,4 +1,4 @@
 login();
 function login() {
-    window.location.href = "./html/login/login.html";
+    window.location.href = "registro-js-app/index.html";
 }
