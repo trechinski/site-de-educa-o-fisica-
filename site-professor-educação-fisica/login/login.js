@@ -28,7 +28,7 @@ function login() {
 
 // Redireciona para tela de registro
 function register() {
-    window.location.href = "../register/register.html";
+    window.location.href = "registro-js-app/index.html";
 }
 
 // Envia email de recuperação de senha
