@@ -1,96 +1,123 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Conheça o Professor — Educação Física</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --orange:#c84a04; /* aproximado */
+      --deep-blue:#0b4b78;
+      --footer-blue:#0b4b78;
+      --white:#ffffff;
+      --card-radius:18px;
+      --max-width:1100px;
+    }
+    *{box-sizing:border-box}
+    body{font-family:'Poppins',system-ui,Arial;background:#fff;margin:0;color:#111}
+    header{background:#fff;padding:14px 0;border-bottom:4px solid #eee}
+    .container{max-width:var(--max-width);margin:0 auto;padding:0 18px}
+    nav{display:flex;justify-content:center;gap:60px;font-weight:700}
+    nav a{color:#111;text-decoration:none}
 
-body {
-  font-family: "Lato", sans-serif;
-}
+    /* Hero */
+    .hero{background:var(--orange);padding:48px 0}
+    .hero-inner{display:flex;align-items:center;gap:40px;max-width:var(--max-width);margin:0 auto;padding:0 18px}
+    .hero-left{flex:1}
+    .hero-right{width:320px;display:flex;justify-content:center}
 
-.vertical-bar {
-  height: 100%;
-  width: 200px;
-  position: fixed;
-  z-index: 1200;
-  top: 0;
-  left: 0;
-  background-color: #1d3557;
-  overflow-x: hidden;
-  padding-top: 20px;
-  display: flex;
-  flex-direction: column;
-  transition: left 0.4s cubic-bezier(.68,-0.55,.27,1.55);
-}
-.vertical-bar.hide {
-  left: -200px;
-}
-.vertical-bar a {
-  padding: 12px 24px;
-  text-decoration: none;
-  font-size: 22px;
-  color: #fff8f0;
-  display: block;
-  transition: background 0.2s;
-}
-.vertical-bar a:hover {
-  background: #457b9d;
-  color: #f1f1f1;
-}
-.main {
-  margin-left: 200px;
-}
+    .badge-title{display:inline-block;background:rgba(0,0,0,.65);color:#fff;padding:14px 28px;border-radius:10px;font-weight:700;margin:0 0 28px 0}
 
-/* Sensor lateral invisível */
-.left-sensor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 120px;
-  height: 100vh;
-  z-index: 1100;
-  background: transparent;
-}
+    .profile-card{background:var(--white);padding:22px;border-radius:20px;max-width:520px}
+    .profile-name{font-size:22px;font-weight:700;margin:0 0 6px}
+    .profile-formation{font-weight:600;color:#333;margin:0}
 
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-</style>
+    .contact-card{display:inline-block;background:var(--deep-blue);color:#fff;padding:18px 30px;border-radius:16px;margin-top:18px;font-weight:700}
+    .contact-card small{display:block;font-weight:400;margin-top:6px}
+
+    /* circular photo */
+    .photo-wrap{width:260px;height:260px;border-radius:50%;overflow:hidden;border:6px solid rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;background:#fff}
+    .photo-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+
+    /* Footer */
+    footer{background:var(--footer-blue);color:#fff;padding:22px 0;margin-top:12px}
+    .footer-grid{display:flex;gap:30px;align-items:flex-start}
+    .footer-left{width:220px}
+    .footer-columns{display:flex;flex:1;gap:30px;justify-content:space-between}
+    .footer-columns h4{margin:0 0 8px;font-size:14px}
+    .footer-columns p, .footer-columns ul{margin:0;padding:0;font-size:13px}
+
+    @media (max-width:880px){
+      .hero-inner{flex-direction:column;gap:20px}
+      .hero-right{width:200px}
+      .photo-wrap{width:200px;height:200px}
+      nav{gap:18px;font-size:14px}
+      .footer-grid{flex-direction:column;gap:12px}
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#conheca">CONHEÇA O PROFESSOR</a>
+        <a href="#regras">REGRAS DA SALA DE AULA</a>
+        <a href="#calendario">CALENDÁRIO DE AULA</a>
+      </nav>
+    </div>
+  </header>
 
-<div class="left-sensor" id="leftSensor"></div>
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-left">
+          <div style="text-align:center">
+            <span class="badge-title">CONHEÇA O<br/>PROFESSOR</span>
+          </div>
 
-<div class="vertical-bar hide" id="verticalBar">
-  <a href="login/login.html">login</a>
-  <a href="#">Início</a>
-  <a href="#">Sobre</a>
-  <a href="#">Clientes</a>
-  <a href="#">Contato</a>
-</div>
+          <div style="height:24px"></div>
 
-<div class="main">
-  <p><img src="imagens/Site de Educação Física.png" width="100" height="100 "></p>  
-  <h2>Site de educação fisica</h2>
-</div>
+          <div class="profile-card">
+            <p class="profile-name">Prof. Hewerton Aparecido Lopes</p>
+            <p class="profile-formation">Formação: Educação Física</p>
+          </div>
 
-<script>
-// Animação da barra lateral vertical usando sensor invisível
-const verticalBar = document.getElementById('verticalBar');
-const leftSensor = document.getElementById('leftSensor');
+          <div class="contact-card" style="margin-top:18px">
+            Contato
+            <small>E-mail: hewerton.lopes@ifpr.edu.br</small>
+          </div>
+        </div>
 
-leftSensor.addEventListener('mouseenter', function() {
-  verticalBar.classList.remove('hide');
-});
+        <div class="hero-right">
+          <div class="photo-wrap">
+            <img src="imagens/Captura de tela 2025-11-28 141259.png" alt="Foto do professor">
+          </div>
+        </div>
+      </div>
+    </section>
 
-verticalBar.addEventListener('mouseleave', function(e) {
-  // Só esconde se o mouse sair da barra lateral para fora do sensor
-  if (!leftSensor.matches(':hover')) {
-    verticalBar.classList.add('hide');
-  }
-});
-</script>
+    <!-- Rodapé com logo e colunas -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-left">
+            <img src="imagens/Site de Educação Física.png" alt="IFPR" style="max-width:160px;display:block;margin-bottom:6px">
+          </div>
 
+          <div class="footer-columns">
+            <div>
+              <h4>SOBRE NÓS</h4>
+              <p>João G. • Leidihiel • Rafael • Vinicius<br/>Isabelly • Larissa • Lettycia • Marya</p>
+            </div>
+            <div>
+              <h4>INFORMAÇÕES SOBRE O SITE</h4>
+              <p>Site da disciplina de Educação Física do professor Hewerton feito por um grupo de alunos do IFPR Campus TB</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
 </body>
 </html>
