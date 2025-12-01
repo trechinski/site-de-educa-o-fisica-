@@ -146,5 +146,28 @@
       </div>
     </footer>
   </main>
+  <script>
+    // Alinha a imagem 141259 ao mesmo nível vertical da imagem 143713
+    function align141259(){
+      const ref = document.querySelector('img[src*="143713"]');
+      const floating = document.querySelector('.floating-141259');
+      if(!ref || !floating) return;
+      const refRect = ref.getBoundingClientRect();
+      const refCenterY = refRect.top + refRect.height / 2;
+
+      // posiciona a imagem 141259 fixa no centro da tela, na mesma altura vertical
+      floating.style.position = 'fixed';
+      floating.style.left = '50%';
+      floating.style.transform = 'translateX(-50%)';
+      floating.style.top = Math.round(refCenterY) + 'px';
+      floating.style.zIndex = 9999;
+      // garante que a imagem ocupe espaço visual sem interferir em cliques
+      floating.style.pointerEvents = 'auto';
+    }
+
+    window.addEventListener('load', align141259);
+    window.addEventListener('resize', align141259);
+    window.addEventListener('scroll', align141259);
+  </script>
 </body>
 </html>
