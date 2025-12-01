@@ -55,7 +55,25 @@
       nav{gap:18px;font-size:14px}
       .footer-grid{flex-direction:column;gap:12px}
     }
-    </style>
+    
+      /* Floating image (kept in footer DOM but visually above "REGRAS DA SALA DE AULA") */
+      .floating-141259{
+        position:fixed;
+        top:60px;
+        left:50%;
+        transform:translateX(-50%);
+        z-index:9999;
+        width:180px;
+        max-width:180px;
+        display:block;
+        pointer-events:auto;
+      }
+
+      @media (max-width:880px){
+        .floating-141259{top:48px;width:140px;max-width:140px}
+      }
+
+      </style>
         <!-- Rodapé duplicado no topo -->
     <footer style="padding:80px 0">
       <div class="container">
@@ -64,7 +82,7 @@
             <img src="imagens/Captura de tela 2025-11-28 143713.png" alt="IFPR" style="max-width:180px;width:180px;display:block;margin-bottom:6px">
           </div>
           <div class="footer-left" style="margin:0 auto">
-            <img src="imagens/Captura de tela 2025-11-28 141259.png" alt="Imagem captura" style="max-width:180px;width:180px;display:block;margin:0 auto;margin-bottom:6px">
+            <img class="floating-141259" src="imagens/Captura de tela 2025-11-28 141259.png" alt="Imagem captura" style="max-width:180px;width:180px;display:block;margin: -1px; auto;margin-bottom:3px">
           </div>
         </div>
       </div>
