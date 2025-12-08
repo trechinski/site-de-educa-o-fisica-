@@ -114,7 +114,9 @@
           <img class="floating-141259" src="imagens/Captura de tela 2025-11-28 141259.png" alt="Imagem captura" style="max-width:160px;width:160px;display:block;margin:0 auto;margin-bottom:0px">
         </div>
         <div class="footer-columns" style="display:flex;flex:1;gap:50px;justify-content:space-between">
+        </div>
       </div>
+    </div>
   </footer>
 </head>
 <body>
@@ -182,8 +184,13 @@
     </footer>
   </div>
   <script>
+    /*
+      CÓDIGO ANTIGO PRESERVADO (não removido):
+      Abaixo está a versão anterior da função de alinhamento — mantida
+      como comentário para preservar o código original conforme solicitado.
+
     // Alinha a imagem 141259 ao mesmo nível vertical da imagem 143713
-    function align141259(){
+    function align141259_old(){
       const ref = document.querySelector('img[src*="143713"]');
       const floating = document.querySelector('.floating-141259');
       if(!ref || !floating) return;
@@ -199,6 +206,29 @@
       floating.style.zIndex = 9999;
       // garante que a imagem ocupe espaço visual sem interferir em cliques
       floating.style.pointerEvents = 'auto';
+    }
+    */
+
+    // Alinha a imagem 141259 ao mesmo nível vertical da imagem 143713 (versão atualizada)
+    function align141259(){
+      const ref = document.querySelector('img[src*="143713"]');
+      const floating = document.querySelector('.floating-141259');
+      if(!ref || !floating) return;
+      const refRect = ref.getBoundingClientRect();
+      const refCenterY = refRect.top + refRect.height / 2;
+
+      // determina a altura real da imagem flutuante (fallback para 160)
+      const floatingHeight = floating.offsetHeight || 160;
+
+      // posiciona a imagem 141259 fixa no centro da tela, na mesma altura vertical
+      floating.style.position = 'fixed';
+      floating.style.left = '50%';
+      floating.style.transform = 'translateX(-50%)';
+      // centraliza verticalmente usando metade da altura da imagem flutuante
+      floating.style.top = Math.round(refCenterY - floatingHeight / 2) + 'px';
+      floating.style.zIndex = 9999;
+      // não bloquear cliques por baixo (se quiser bloquear, use 'auto')
+      floating.style.pointerEvents = 'none';
     }
 
     window.addEventListener('load', align141259);
