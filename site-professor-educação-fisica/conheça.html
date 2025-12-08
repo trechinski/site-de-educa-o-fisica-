@@ -228,9 +228,34 @@
       floating.style.pointerEvents = 'auto';
     }
 
+    // mantêm o comportamento existente para a imagem flutuante
     window.addEventListener('load', align141259);
     window.addEventListener('resize', align141259);
     window.addEventListener('scroll', align141259);
+
+    // Nova função: posiciona a badge 'CONHEÇA O PROFESSOR' acima do primeiro .profile-card
+    function alignBadgeAboveProfile(){
+      const floatingBadge = document.querySelector('.badge-title');
+      const refProfile = document.querySelector('.profile-card');
+      if(!floatingBadge || !refProfile) return;
+
+      const refRect = refProfile.getBoundingClientRect();
+      const badgeHeight = floatingBadge.offsetHeight || 40;
+
+      // fixa a badge ao centro horizontal da viewport e posiciona-a acima do profile-card
+      floatingBadge.style.position = 'fixed';
+      floatingBadge.style.left = '50%';
+      floatingBadge.style.transform = 'translateX(-50%)';
+      // coloca a base da badge 10px acima do topo do profile-card
+      floatingBadge.style.top = Math.round(refRect.top - badgeHeight - 10) + 'px';
+      floatingBadge.style.zIndex = 9999;
+      floatingBadge.style.pointerEvents = 'auto';
+    }
+
+    // Chama a função nova nos mesmos eventos para manter o alinhamento responsivo
+    window.addEventListener('load', alignBadgeAboveProfile);
+    window.addEventListener('resize', alignBadgeAboveProfile);
+    window.addEventListener('scroll', alignBadgeAboveProfile);
   </script>
 </body>
 </html>
