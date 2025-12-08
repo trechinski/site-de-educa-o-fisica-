@@ -79,6 +79,15 @@
     footer h3{ margin:0 0 8px; font-size:16px; }
     footer p{ margin:0; font-size:14px; line-height:1.35; }
 
+    /* Keep image in footer DOM but align it with the other footer item (no fixed positioning) */
+    .floating-141259{
+      position:static;
+      width:160px;
+      max-width:160px;
+      display:block;
+      margin:0;
+    }
+
     @media (max-width:800px){
       .wrap{ padding:12px; }
       .titulo{ font-size:20px; padding:10px 20px; }
@@ -86,6 +95,19 @@
       nav{gap:18px;font-size:14px}
     }
   </style>
+  <!-- Rodapé duplicado no topo -->
+  <footer style="padding:80px 0; position:relative">
+    <div class="container">
+      <div class="footer-grid" style="gap:150px;justify-content:space-between;align-items:center">
+        <div class="footer-left">
+          <img src="imagens/Captura de tela 2025-11-28 143713.png" alt="IFPR" style="max-width:180px;width:180px;display:block;margin-bottom:6px">
+        </div>
+        <div class="footer-left" style="margin:0 auto">
+          <img class="floating-141259" src="imagens/Captura de tela 2025-11-28 141259.png" alt="Imagem captura" style="max-width:160px;width:160px;display:block;margin:0 auto;margin-bottom:0px">
+        </div>
+      </div>
+    </div>
+  </footer>
 </head>
 <body>
   <header>
@@ -135,3 +157,27 @@
   </div>
 </body>
 </html>
+<script>
+  // Alinha a imagem 141259 ao mesmo nível vertical da imagem 143713
+  function align141259(){
+    const ref = document.querySelector('img[src*="143713"]');
+    const floating = document.querySelector('.floating-141259');
+    if(!ref || !floating) return;
+    const refRect = ref.getBoundingClientRect();
+    const refCenterY = refRect.top + refRect.height / 2;
+
+    // posiciona a imagem 141259 fixa no centro da tela, na mesma altura vertical
+    floating.style.position = 'fixed';
+    floating.style.left = '50%';
+    floating.style.transform = 'translateX(-50%)';
+    // subir 20px no total para ajustar visual (mais 10px solicitado)
+    floating.style.top = Math.round(refCenterY - 50) + 'px';
+    floating.style.zIndex = 9999;
+    // garante que a imagem ocupe espaço visual sem interferir em cliques
+    floating.style.pointerEvents = 'auto';
+  }
+
+  window.addEventListener('load', align141259);
+  window.addEventListener('resize', align141259);
+  window.addEventListener('scroll', align141259);
+</script>
