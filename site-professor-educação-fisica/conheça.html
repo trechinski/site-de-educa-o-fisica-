@@ -209,9 +209,10 @@
     }
     */
 
-    // Alinha a imagem 141259 ao mesmo nível vertical da imagem 143713 (versão atualizada)
+    // Alinha a imagem 141259 ao mesmo nível vertical da `.profile-card` (versão atualizada)
     function align141259(){
-      const ref = document.querySelector('img[src*="143713"]');
+      // referência alterada para o profile-card conforme solicitado
+      const ref = document.querySelector('.profile-card');
       const floating = document.querySelector('.floating-141259');
       if(!ref || !floating) return;
       const refRect = ref.getBoundingClientRect();
@@ -220,14 +221,14 @@
       // determina a altura real da imagem flutuante (fallback para 160)
       const floatingHeight = floating.offsetHeight || 160;
 
-      // posiciona a imagem 141259 fixa no centro da tela, na mesma altura vertical
+      // posiciona a imagem 141259 fixa no centro da tela, alinhada verticalmente ao profile-card
       floating.style.position = 'fixed';
       floating.style.left = '50%';
       floating.style.transform = 'translateX(-50%)';
       // centraliza verticalmente usando metade da altura da imagem flutuante
       floating.style.top = Math.round(refCenterY - floatingHeight / 2) + 'px';
       floating.style.zIndex = 9999;
-      // não bloquear cliques por baixo (se quiser bloquear, use 'auto')
+      // não bloquear cliques por baixo
       floating.style.pointerEvents = 'none';
     }
 
