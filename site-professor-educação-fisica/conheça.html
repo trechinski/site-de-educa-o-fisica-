@@ -242,14 +242,14 @@
       const refRect = refProfile.getBoundingClientRect();
       const badgeHeight = floatingBadge.offsetHeight || 40;
 
-      // posiciona a badge mais acima e um pouco à direita em relação ao profile-card
+      // posiciona a badge ainda mais acima e mais à direita em relação ao profile-card
       floatingBadge.style.position = 'fixed';
-      // desloca a badge ligeiramente para a direita da borda esquerda do profile-card
-      floatingBadge.style.left = Math.round(refRect.left + 30) + 'px';
+      // aumenta deslocamento para direita da borda esquerda do profile-card
+      floatingBadge.style.left = Math.round(refRect.left + 80) + 'px';
       // remove transform de centralização
       floatingBadge.style.transform = 'none';
-      // coloca a base da badge 60px acima do topo do profile-card (mais para cima)
-      floatingBadge.style.top = Math.round(refRect.top - badgeHeight - 60) + 'px';
+      // coloca a base da badge 90px acima do topo do profile-card (mais para cima)
+      floatingBadge.style.top = Math.round(refRect.top - badgeHeight - 90) + 'px';
       floatingBadge.style.zIndex = 9999;
       floatingBadge.style.pointerEvents = 'auto';
     }
