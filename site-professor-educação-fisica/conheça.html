@@ -209,27 +209,23 @@
     }
     */
 
-    // Alinha a imagem 141259 ao mesmo nível vertical da `.profile-card` (versão atualizada)
+    // Restaurado: alinha a imagem 141259 como era antes (à imagem 143713)
     function align141259(){
-      // referência alterada para o profile-card conforme solicitado
-      const ref = document.querySelector('.profile-card');
+      const ref = document.querySelector('img[src*="143713"]');
       const floating = document.querySelector('.floating-141259');
       if(!ref || !floating) return;
       const refRect = ref.getBoundingClientRect();
       const refCenterY = refRect.top + refRect.height / 2;
 
-      // determina a altura real da imagem flutuante (fallback para 160)
-      const floatingHeight = floating.offsetHeight || 160;
-
-      // posiciona a imagem 141259 fixa no centro da tela, alinhada verticalmente ao profile-card
+      // posiciona a imagem 141259 fixa no centro da tela, na mesma altura vertical
       floating.style.position = 'fixed';
       floating.style.left = '50%';
       floating.style.transform = 'translateX(-50%)';
-      // centraliza verticalmente usando metade da altura da imagem flutuante
-      floating.style.top = Math.round(refCenterY - floatingHeight / 2) + 'px';
+      // mantém o ajuste anterior (subir ~50px desde o centro da imagem de referência)
+      floating.style.top = Math.round(refCenterY - 50) + 'px';
       floating.style.zIndex = 9999;
-      // não bloquear cliques por baixo
-      floating.style.pointerEvents = 'none';
+      // mantém o comportamento antigo de permitir interações
+      floating.style.pointerEvents = 'auto';
     }
 
     window.addEventListener('load', align141259);
