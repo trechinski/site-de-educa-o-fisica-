@@ -4,6 +4,8 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Calendário de Aula</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.cdnfonts.com/css/coco-gothic" />
 
 <style>
   :root{
@@ -20,6 +22,11 @@
     background:var(--orange);
     color:#111;
   }
+
+  header{background:#fff;padding:24px 0;border-bottom:3px solid #eee}
+  .container{max-width:1100px;margin:0 auto;padding:0 18px}
+  nav{display:flex;justify-content:center;gap:40px;font-weight:700;font-size:20px;font-family:'Coco Gothic', 'Poppins', Arial, sans-serif}
+  nav a{color:#111;text-decoration:none}
 
   .wrap{
     max-width:1100px;
@@ -126,11 +133,21 @@
     footer.rodape{ flex-direction:column; align-items:center; text-align:center; }
     .grade thead th, .grade td{ width: 100%; display:block; }
     .grade{ border-spacing:8px; }
+    nav{gap:18px;font-size:14px}
   }
 </style>
 </head>
 
 <body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="conheça.html">CONHEÇA O PROFESSOR</a>
+        <a href="regras.html">REGRAS DA SALA DE AULA</a>
+        <a href="tabela.html">CALENDÁRIO</a>
+      </nav>
+    </div>
+  </header>
   <div class="wrap">
     <div class="titulo-wrap">
       <div class="titulo">CALENDÁRIO DE AULA</div>
