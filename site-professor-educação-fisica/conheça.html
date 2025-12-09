@@ -4,8 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Conheça o Professor — Educação Física</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/coco-gothic" />
+
   <style>
     :root{
       --orange:#c84a04;
@@ -24,7 +26,14 @@
 
     header{background:#fff;padding:24px 0;border-bottom:3px solid #eee}
     .container{max-width:1100px;margin:0 auto;padding:0 18px}
-    nav{display:flex;justify-content:center;gap:40px;font-weight:700;font-size:20px;font-family:'Coco Gothic', 'Poppins', Arial, sans-serif}
+    nav{
+      display:flex;
+      justify-content:center;
+      gap:40px;
+      font-weight:700;
+      font-size:20px;
+      font-family:'Coco Gothic','Poppins',Arial,sans-serif;
+    }
     nav a{color:#111;text-decoration:none}
 
     .wrap{
@@ -38,9 +47,23 @@
     .hero-left{flex:1}
     .hero-right{width:320px;display:flex;justify-content:center}
 
-    .badge-title{display:inline-block;background:var(--dark);color:var(--white);padding:14px 28px;border-radius:10px;font-weight:700;margin:0 0 28px 0;font-family:'Coco Gothic', 'Poppins', Arial, sans-serif}
+    .badge-title{
+      display:inline-block;
+      background:var(--dark);
+      color:var(--white);
+      padding:14px 28px;
+      border-radius:10px;
+      font-weight:700;
+      margin:0 0 28px 0;
+      font-family:'Coco Gothic','Poppins',Arial,sans-serif;
+    }
 
-    .profile-card{background:var(--white);padding:22px;border-radius:20px;max-width:520px}
+    .profile-card{
+      background:var(--white);
+      padding:22px;
+      border-radius:20px;
+      max-width:520px;
+    }
     .profile-name{font-size:22px;font-weight:700;margin:0 0 6px}
     .profile-formation{
       font-weight:600;
@@ -66,7 +89,14 @@
       font-size:20px;
     }
 
-    .photo-wrap{width:260px;height:260px;border-radius:50%;overflow:hidden;border:6px solid rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;background:var(--white)}
+    .photo-wrap{
+      width:260px;height:260px;
+      border-radius:50%;
+      overflow:hidden;
+      border:6px solid rgba(0,0,0,.6);
+      display:flex;align-items:center;justify-content:center;
+      background:var(--white);
+    }
     .photo-wrap img{width:100%;height:100%;object-fit:cover;display:block}
 
     footer.rodape{
@@ -103,7 +133,12 @@
       nav{gap:18px;font-size:14px}
     }
   </style>
-  <!-- Rodapé duplicado no topo com fundo azul -->
+
+</head>
+
+<body>
+
+  <!-- Footer azul movido para o lugar correto -->
   <footer style="padding:40px 0;position:relative;background:var(--navy);color:#fff;">
     <div class="container">
       <div class="footer-grid" style="display:flex;gap:50px;align-items:flex-start;">
@@ -111,15 +146,13 @@
           <img src="imagens/Captura de tela 2025-11-28 143713.png" alt="IFPR" style="max-width:180px;display:block;margin-bottom:6px">
         </div>
         <div class="footer-left" style="margin:0 auto">
-          <img class="floating-141259" src="imagens/Captura de tela 2025-11-28 141259.png" alt="Imagem captura" style="max-width:160px;width:160px;display:block;margin:0 auto;margin-bottom:0px">
+          <img class="floating-141259" src="imagens/Captura de tela 2025-11-28 141259.png" alt="Imagem captura" style="max-width:160px;width:160px;display:block;margin:0 auto;">
         </div>
-        <div class="footer-columns" style="display:flex;flex:1;gap:50px;justify-content:space-between">
-        </div>
+        <div class="footer-columns" style="display:flex;flex:1;gap:50px;justify-content:space-between"></div>
       </div>
     </div>
   </footer>
-</head>
-<body>
+
   <header>
     <div class="container">
       <nav>
@@ -134,6 +167,7 @@
     <main>
       <section class="hero">
         <div class="hero-inner">
+
           <div class="hero-left">
             <div style="text-align:left">
               <span class="badge-title">CONHEÇA O<br/>PROFESSOR</span>
@@ -146,15 +180,15 @@
               <p class="profile-formation">Formação: Educação Física</p>
             </div>
 
-              <div class="profile-card" 
-     style="
-        background:#00357a;
-        color:#ffffff;
-        padding:18px 30px;
-        border-radius:16px;
-        margin-top:24px;
-        font-weight:700;
-        font-size:22px;">
+            <div class="profile-card" 
+              style="
+                background:#00357a;
+                color:#ffffff;
+                padding:18px 30px;
+                border-radius:16px;
+                margin-top:24px;
+                font-weight:700;
+                font-size:22px;">
               Contato:
               <small>E-mail: hewerton.lopes@ifpr.edu.br</small>
             </div>
@@ -165,6 +199,7 @@
               <img src="imagens/Captura de tela 2025-12-01 093704.png" alt="Foto do professor">
             </div>
           </div>
+
         </div>
       </section>
     </main>
@@ -183,100 +218,51 @@
       </div>
     </footer>
   </div>
+
   <script>
-    /*
-      CÓDIGO ANTIGO PRESERVADO (não removido):
-      Abaixo está a versão anterior da função de alinhamento — mantida
-      como comentário para preservar o código original conforme solicitado.
 
-    // Alinha a imagem 141259 ao mesmo nível vertical da imagem 143713
-    function align141259_old(){
-      const ref = document.querySelector('img[src*="143713"]');
-      const floating = document.querySelector('.floating-141259');
-      if(!ref || !floating) return;
-      const refRect = ref.getBoundingClientRect();
-      const refCenterY = refRect.top + refRect.height / 2;
-
-      // posiciona a imagem 141259 fixa no centro da tela, na mesma altura vertical
-      floating.style.position = 'fixed';
-      floating.style.left = '50%';
-      floating.style.transform = 'translateX(-50%)';
-      // subir 20px no total para ajustar visual (mais 10px solicitado)
-      floating.style.top = Math.round(refCenterY - 50) + 'px';
-      floating.style.zIndex = 9999;
-      // garante que a imagem ocupe espaço visual sem interferir em cliques
-      floating.style.pointerEvents = 'auto';
-    }
-    */
-
-    // Restaurado: alinha a imagem 141259 como era antes (à imagem 143713)
+    /* Função: alinha imagem flutuante com a imagem 143713 */
     function align141259(){
       const ref = document.querySelector('img[src*="143713"]');
       const floating = document.querySelector('.floating-141259');
       if(!ref || !floating) return;
+
       const refRect = ref.getBoundingClientRect();
       const refCenterY = refRect.top + refRect.height / 2;
 
-      // posiciona a imagem 141259 fixa no centro da tela, na mesma altura vertical
       floating.style.position = 'fixed';
       floating.style.left = '50%';
       floating.style.transform = 'translateX(-50%)';
-      // mantém o ajuste anterior (subir ~50px desde o centro da imagem de referência)
       floating.style.top = Math.round(refCenterY - 50) + 'px';
       floating.style.zIndex = 9999;
-      // mantém o comportamento antigo de permitir interações
       floating.style.pointerEvents = 'auto';
     }
 
-    // mantêm o comportamento existente para a imagem flutuante
+    /* Função: posiciona a badge acima do profile-card */
+    function alignBadgeAboveProfile(){
+      const badge = document.querySelector('.badge-title');
+      const profile = document.querySelector('.profile-card');
+      if(!badge || !profile) return;
+
+      const rect = profile.getBoundingClientRect();
+      const badgeHeight = badge.offsetHeight || 40;
+
+      badge.style.position = 'fixed';
+      badge.style.left = Math.round(rect.left + 170) + 'px';
+      badge.style.top = Math.round(rect.top - badgeHeight - 90) + 'px';
+      badge.style.transform = 'none';
+      badge.style.zIndex = 9999;
+    }
+
     window.addEventListener('load', align141259);
     window.addEventListener('resize', align141259);
-    window.addEventListener('scroll', align141259);]
+    window.addEventListener('scroll', align141259);
 
-     // Função: posiciona a badge 'CONHEÇA O PROFESSOR' fixa no fundo com coordenadas fixas
-    function alignBadgeAboveProfile(){
-      const floatingBadge = document.querySelector('.badge-title');
-      if(!floatingBadge) return;
-
-      // posiciona a badge fixa no fundo com coordenadas fixas
-      floatingBadge.style.position = 'fixed';
-      floatingBadge.style.left = '170px';
-      floatingBadge.style.bottom = '100px';
-      floatingBadge.style.transform = 'none';
-      floatingBadge.style.zIndex = 9999;
-      floatingBadge.style.pointerEvents = 'auto';
-    }
-
-    // Chama a função nos eventos para manter o alinhamento
     window.addEventListener('load', alignBadgeAboveProfile);
     window.addEventListener('resize', alignBadgeAboveProfile);
     window.addEventListener('scroll', alignBadgeAboveProfile);
 
-    // Nova função: posiciona a badge 'CONHEÇA O PROFESSOR' acima do primeiro .profile-card
-    function alignBadgeAboveProfile(){
-      const floatingBadge = document.querySelector('.badge-title');
-      const refProfile = document.querySelector('.profile-card');
-      if(!floatingBadge || !refProfile) return;
-
-      const refRect = refProfile.getBoundingClientRect();
-      const badgeHeight = floatingBadge.offsetHeight || 40;
-
-      // posiciona a badge ainda mais acima e mais à direita em relação ao profile-card
-      floatingBadge.style.position = 'fixed';
-      // aumenta deslocamento para direita da borda esquerda do profile-card
-      floatingBadge.style.left = Math.round(refRect.left + 170) + 'px';
-      // remove transform de centralização
-      floatingBadge.style.transform = 'none';
-      // coloca a base da badge 90px acima do topo do profile-card (mais para cima)
-      floatingBadge.style.top = Math.round(refRect.top - badgeHeight - 90) + 'px';
-      floatingBadge.style.zIndex = 9999;
-      floatingBadge.style.pointerEvents = 'auto';
-    }
-
-    // Chama a função nova nos mesmos eventos para manter o alinhamento responsivo
-    window.addEventListener('load', alignBadgeAboveProfile);
-    window.addEventListener('resize', alignBadgeAboveProfile);
-    window.addEventListener('scroll', alignBadgeAboveProfile);
   </script>
 </body>
 </html>
+                                                                                                                               </html>>
