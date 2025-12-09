@@ -233,23 +233,16 @@
     window.addEventListener('resize', align141259);
     window.addEventListener('scroll', align141259);
 
-    // Nova função: posiciona a badge 'CONHEÇA O PROFESSOR' acima do primeiro .profile-card
+    // Nova função: posiciona a badge 'CONHEÇA O PROFESSOR' em coordenadas fixas
     function alignBadgeAboveProfile(){
       const floatingBadge = document.querySelector('.badge-title');
-      const refProfile = document.querySelector('.profile-card');
-      if(!floatingBadge || !refProfile) return;
+      if(!floatingBadge) return;
 
-      const refRect = refProfile.getBoundingClientRect();
-      const badgeHeight = floatingBadge.offsetHeight || 40;
-
-      // posiciona a badge ainda mais acima e mais à direita em relação ao profile-card
+      // posiciona a badge em coordenadas fixas
       floatingBadge.style.position = 'fixed';
-      // aumenta deslocamento para direita da borda esquerda do profile-card
-      floatingBadge.style.left = Math.round(refRect.left + 170) + 'px';
-      // remove transform de centralização
+      floatingBadge.style.left = '170px';
+      floatingBadge.style.top = '100px';
       floatingBadge.style.transform = 'none';
-      // coloca a base da badge 90px acima do topo do profile-card (mais para cima)
-      floatingBadge.style.top = Math.round(refRect.top - badgeHeight - 90) + 'px';
       floatingBadge.style.zIndex = 9999;
       floatingBadge.style.pointerEvents = 'auto';
     }
