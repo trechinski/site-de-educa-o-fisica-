@@ -231,18 +231,44 @@
     // mantêm o comportamento existente para a imagem flutuante
     window.addEventListener('load', align141259);
     window.addEventListener('resize', align141259);
-    window.addEventListener('scroll', align141259);
+    window.addEventListener('scroll', align141259);]
 
-    // Nova função: posiciona a badge 'CONHEÇA O PROFESSOR' em coordenadas fixas
+     // Função: posiciona a badge 'CONHEÇA O PROFESSOR' fixa no fundo com coordenadas fixas
     function alignBadgeAboveProfile(){
       const floatingBadge = document.querySelector('.badge-title');
       if(!floatingBadge) return;
 
-      // posiciona a badge em coordenadas fixas
+      // posiciona a badge fixa no fundo com coordenadas fixas
       floatingBadge.style.position = 'fixed';
       floatingBadge.style.left = '170px';
-      floatingBadge.style.top = '100px';
+      floatingBadge.style.bottom = '100px';
       floatingBadge.style.transform = 'none';
+      floatingBadge.style.zIndex = 9999;
+      floatingBadge.style.pointerEvents = 'auto';
+    }
+
+    // Chama a função nos eventos para manter o alinhamento
+    window.addEventListener('load', alignBadgeAboveProfile);
+    window.addEventListener('resize', alignBadgeAboveProfile);
+    window.addEventListener('scroll', alignBadgeAboveProfile);
+
+    // Nova função: posiciona a badge 'CONHEÇA O PROFESSOR' acima do primeiro .profile-card
+    function alignBadgeAboveProfile(){
+      const floatingBadge = document.querySelector('.badge-title');
+      const refProfile = document.querySelector('.profile-card');
+      if(!floatingBadge || !refProfile) return;
+
+      const refRect = refProfile.getBoundingClientRect();
+      const badgeHeight = floatingBadge.offsetHeight || 40;
+
+      // posiciona a badge ainda mais acima e mais à direita em relação ao profile-card
+      floatingBadge.style.position = 'fixed';
+      // aumenta deslocamento para direita da borda esquerda do profile-card
+      floatingBadge.style.left = Math.round(refRect.left + 170) + 'px';
+      // remove transform de centralização
+      floatingBadge.style.transform = 'none';
+      // coloca a base da badge 90px acima do topo do profile-card (mais para cima)
+      floatingBadge.style.top = Math.round(refRect.top - badgeHeight - 90) + 'px';
       floatingBadge.style.zIndex = 9999;
       floatingBadge.style.pointerEvents = 'auto';
     }
