@@ -56,10 +56,10 @@
       font-weight:700;
       margin:0 0 28px 0;
       font-family:'Coco Gothic','Poppins',Arial,sans-serif;
-      position:sticky;
-      top:8px;
-      left:170px;
-      z-index:20;
+      position:fixed;
+      top:120px;
+      left:0px;
+      z-index:10000;
     }
 
     .profile-card{
@@ -135,6 +135,7 @@
       .photo-wrap{width:200px;height:200px}
       footer.rodape{flex-direction:column;align-items:center;text-align:center;}
       nav{gap:18px;font-size:14px}
+        .badge-title{left:100px;top:100px}
     }
   </style>
 
@@ -234,6 +235,8 @@
       const refRect = ref.getBoundingClientRect();
       const refCenterY = refRect.top + refRect.height / 2;
 
+      
+
       floating.style.position = 'fixed';
       floating.style.left = '50%';
       floating.style.transform = 'translateX(-50%)';
@@ -252,11 +255,14 @@
       const refRect = ref.getBoundingClientRect();
       const refCenterY = refRect.top + refRect.height / 2;
 
+      const refCenterX = refRect.left + refRect.width / 2;
+
+
       badge.style.position = 'fixed';
-      badge.style.left = '50%';
+      badge.style.left = Math.round(refCenterX -30) + 'px';
       badge.style.transform = 'translateX(-50%)';
       // aplica o mesmo deslocamento vertical usado para a imagem (subir ~50px)
-      badge.style.top = Math.round(refCenterY -200) + 'px';
+      badge.style.top = Math.round(refCenterY -170) + 'px';
       badge.style.zIndex = 9999;
       badge.style.pointerEvents = 'auto';
     }
