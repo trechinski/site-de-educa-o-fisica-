@@ -42,7 +42,7 @@
       padding:18px;
     }
 
-    .hero{background:var(--orange);padding:80px 0}
+    .hero{position:relative;background:var(--orange);padding:80px 0}
     .hero-inner{display:flex;align-items:center;gap:40px;max-width:1100px;margin:0 auto;padding:0 18px}
     .hero-left{flex:1}
     .hero-right{width:320px;display:flex;justify-content:center}
@@ -56,6 +56,9 @@
       font-weight:700;
       margin:0 0 28px 0;
       font-family:'Coco Gothic','Poppins',Arial,sans-serif;
+      position:sticky;
+      top:18px;
+      z-index:20;
     }
 
     .profile-card{
@@ -238,20 +241,23 @@
       floating.style.pointerEvents = 'auto';
     }
 
-    /* Função: posiciona a badge acima do profile-card */
+    /* Função: posiciona a badge usando o mesmo sistema da imagem 143713,
+       tomando o primeiro .profile-card como referência */
     function alignBadgeAboveProfile(){
+      const ref = document.querySelector('.profile-card');
       const badge = document.querySelector('.badge-title');
-      const profile = document.querySelector('.profile-card');
-      if(!badge || !profile) return;
+      if(!ref || !badge) return;
 
-      const rect = profile.getBoundingClientRect();
-      const badgeHeight = badge.offsetHeight || 40;
+      const refRect = ref.getBoundingClientRect();
+      const refCenterY = refRect.top + refRect.height / 2;
 
       badge.style.position = 'fixed';
-      badge.style.left = Math.round(rect.left + 170) + 'px';
-      badge.style.top = Math.round(rect.top - badgeHeight - 110) + 'px';
-      badge.style.transform = 'none';
+      badge.style.left = '50%';
+      badge.style.transform = 'translateX(-50%)';
+      // aplica o mesmo deslocamento vertical usado para a imagem (subir ~50px)
+      badge.style.top = Math.round(refCenterY - 50) + 'px';
       badge.style.zIndex = 9999;
+      badge.style.pointerEvents = 'auto';
     }
 
     window.addEventListener('load', align141259);
